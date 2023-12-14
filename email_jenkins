@@ -1,0 +1,17 @@
+post {
+        always {
+            emailext (
+                subject: "Pipeline Status: ${UILD_NUMBER}",
+                body: '''<html>
+                            <body>
+                                <p>Build Status: ${BUILD_STATUS}</p>
+                                <p>Build Number: ${BUILD_NUMBER}</p>
+                            </body>
+                        </html>''',
+                to: 'maladoddipavankalyan@gmail.com',
+                from: 'Jenkins@example.com',
+                replyTo: 'Jenkins@example.com',
+                mimeType: 'text/html'
+            )
+        }
+    }
